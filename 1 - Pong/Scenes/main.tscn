@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0o11b43h656a"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_4aerk"]
+[ext_resource type="PackedScene" uid="uid://d3un6gslwvs3k" path="res://Scenes/gadget.tscn" id="2_4j7vg"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="3_4455n"]
+[ext_resource type="PackedScene" uid="uid://cqdk0pj4tk0k4" path="res://Scenes/world_boundary.tscn" id="3_f3til"]
+[ext_resource type="Script" path="res://Scripts/bot.gd" id="4_b4sct"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mvtfd"]
+font_size = 64
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("player_gadget", "bot_gadget", "ball_gadget")]
+script = ExtResource("1_4aerk")
+player_gadget = NodePath("PlayerGadget")
+bot_gadget = NodePath("BotGadget")
+ball_gadget = NodePath("BallGadget")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PlayerScore" type="Label" parent="."]
+offset_left = -386.0
+offset_top = -291.0
+offset_right = -346.0
+offset_bottom = -268.0
+text = "0"
+
+[node name="BotScore" type="Label" parent="."]
+offset_left = 348.0
+offset_top = -291.0
+offset_right = 388.0
+offset_bottom = -268.0
+text = "0"
+horizontal_alignment = 2
+
+[node name="StartHint" type="Label" parent="."]
+offset_left = -322.0
+offset_top = -58.0
+offset_right = 324.0
+offset_bottom = 49.0
+text = "LEFT CLICK TO START"
+label_settings = SubResource("LabelSettings_mvtfd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerGadget" parent="." instance=ExtResource("2_4j7vg")]
+position = Vector2(-380, 0)
+script = ExtResource("3_4455n")
+
+[node name="BotGadget" parent="." instance=ExtResource("2_4j7vg")]
+position = Vector2(380, 0)
+script = ExtResource("4_b4sct")
+
+[node name="BallGadget" parent="." instance=ExtResource("2_4j7vg")]
+visible = false
+scale = Vector2(0.8, -0.1)
+
+[node name="WorldBoundaryTop" parent="." instance=ExtResource("3_f3til")]
+position = Vector2(0, -255)
+rotation = 3.14159
+
+[node name="WorldBoundaryBottom" parent="." instance=ExtResource("3_f3til")]
+position = Vector2(0, 255)
