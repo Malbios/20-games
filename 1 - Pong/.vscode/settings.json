@@ -1,3 +1,7 @@
 {
-    "editor.formatOnSave": true
+    "editor.folding": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.formatOnSaveMode": "modificationsIfAvailable"
 }
