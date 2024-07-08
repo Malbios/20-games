@@ -39,11 +39,9 @@ func reset_ball():
 		ball.queue_free()
 
 	ball = ball_prefab.instantiate()
-	ball.contact_monitor = true
-	ball.max_contacts_reported = 1
 	ball.body_entered.connect(handle_ball_collision)
 	add_child(ball)
-	var force_vector = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+	var force_vector = Vector2(randf_range(-0.8, 0.8), randf_range(-0.3, 0.3)).normalized()
 	force_vector *= ball_speed
 	ball.apply_impulse(force_vector)
 
