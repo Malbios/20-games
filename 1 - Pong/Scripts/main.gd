@@ -13,7 +13,7 @@ var bot_score_value := 0
 var ball_prefab := preload("res://Scenes/ball.tscn")
 var bounce_sound := preload("res://Assets/bounce.mp3")
 var player_scored_sound := preload("res://Assets/player_scored.mp3")
-var bot_scored_sound := preload("res://Assets/player_scored.mp3")
+var bot_scored_sound := preload("res://Assets/bot_scored.mp3")
 
 var bounce_sound_player := AudioStreamPlayer.new()
 var player_scored_sound_player := AudioStreamPlayer.new()
@@ -53,7 +53,9 @@ func set_game_elements(enable: bool):
 		$StartHint.hide()
 		set_elements_process(true)
 		player_score_value = 0
+		player_score.text = str(player_score_value)
 		bot_score_value = 0
+		bot_score.text = str(bot_score_value)
 		reset_ball()
 	else:
 		if ball:
