@@ -1,3 +1,61 @@
-[gd_scene format=3 uid="uid://cjo0m7a1ns08j"]
+[gd_scene load_steps=7 format=3 uid="uid://cjo0m7a1ns08j"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_qikg4"]
+[ext_resource type="PackedScene" uid="uid://biq1sr6stjxql" path="res://Scenes/Components/world_boundary.tscn" id="2_ad4ur"]
+[ext_resource type="PackedScene" uid="uid://b8ob5kcn2qwtq" path="res://Scenes/Components/ball.tscn" id="4_wvelg"]
+[ext_resource type="PackedScene" uid="uid://bplo2fvgq4ops" path="res://Scenes/Components/hearts.tscn" id="5_2hgrr"]
+[ext_resource type="PackedScene" uid="uid://d0esfc77n8oat" path="res://Scenes/Components/player_paddle.tscn" id="5_bot5o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j6pf2"]
+font_size = 32
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_qikg4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StartHint" type="Label" parent="."]
+offset_left = -165.0
+offset_top = -75.0
+offset_right = 165.0
+offset_bottom = -15.0
+text = "PRESS SPACE TO START"
+label_settings = SubResource("LabelSettings_j6pf2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="StartHint"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 55.0
+offset_right = 286.0
+offset_bottom = 78.0
+text = "press m if you hate sounds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ball" parent="." instance=ExtResource("4_wvelg")]
+position = Vector2(0, 239)
+
+[node name="WorldBoundaryLeft" parent="." instance=ExtResource("2_ad4ur")]
+position = Vector2(-239, 0)
+rotation = 1.5708
+
+[node name="WorldBoundaryRight" parent="." instance=ExtResource("2_ad4ur")]
+position = Vector2(239, 0)
+rotation = 4.71239
+
+[node name="WorldBoundaryTop" parent="." instance=ExtResource("2_ad4ur")]
+position = Vector2(0, -319)
+rotation = 3.14159
+
+[node name="WorldBoundaryBottom" parent="." instance=ExtResource("2_ad4ur")]
+position = Vector2(0, 280)
+
+[node name="PlayerPaddle" parent="." instance=ExtResource("5_bot5o")]
+position = Vector2(0, 260)
+collision_mask = 2
+motion_mode = 1
+
+[node name="Hearts" parent="." instance=ExtResource("5_2hgrr")]
+position = Vector2(-216, 299)

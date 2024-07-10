@@ -11,9 +11,9 @@ var player_score_value := 0
 var bot_score_value := 0
 
 var ball_prefab := preload("res://Scenes/ball.tscn")
-var bounce_sound := preload("res://Assets/bounce.mp3")
-var player_scored_sound := preload("res://Assets/player_scored.mp3")
-var bot_scored_sound := preload("res://Assets/bot_scored.mp3")
+var bounce_sound := preload("res://Assets/bounce.wav")
+var player_scored_sound := preload("res://Assets/player_scored.wav")
+var bot_scored_sound := preload("res://Assets/bot_scored.wav")
 
 var bounce_sound_player := AudioStreamPlayer.new()
 var player_scored_sound_player := AudioStreamPlayer.new()

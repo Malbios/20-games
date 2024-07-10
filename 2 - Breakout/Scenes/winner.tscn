@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd4o52rh3xtjx"]
+
+[ext_resource type="Script" path="res://Scripts/game_scene.gd" id="1_4xkmo"]
+[ext_resource type="AudioStream" uid="uid://dkwa2enog57j4" path="res://Assets/wohoo.wav" id="2_bcorl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gfoom"]
+font_size = 50
+
+[node name="Winner" type="Node2D"]
+script = ExtResource("1_4xkmo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -228.0
+offset_top = -51.0
+offset_right = 228.0
+offset_bottom = 37.0
+text = "!!! YOU WON !!!"
+label_settings = SubResource("LabelSettings_gfoom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bcorl")
+autoplay = true

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1kqcmpj0kcpe"]
+
+[ext_resource type="Script" path="res://Scripts/game_scene.gd" id="1_4b75g"]
+[ext_resource type="AudioStream" uid="uid://bcelj2wfnyqu0" path="res://Assets/gameover.wav" id="2_bmpmx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gfoom"]
+font_size = 50
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_4b75g")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -228.0
+offset_top = -51.0
+offset_right = 228.0
+offset_bottom = 37.0
+text = "!!! GAME OVER !!!"
+label_settings = SubResource("LabelSettings_gfoom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bmpmx")
+autoplay = true
