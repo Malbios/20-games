@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bplo2fvgq4ops"]
+
+[ext_resource type="Script" path="res://Scripts/hearts.gd" id="1_4h0eq"]
+[ext_resource type="PackedScene" uid="uid://b6oqvc2y6bdfr" path="res://Scenes/Components/heart.tscn" id="2_qnflp"]
+
+[node name="Hearts" type="Node2D"]
+script = ExtResource("1_4h0eq")
+
+[node name="Heart1" parent="." instance=ExtResource("2_qnflp")]
+position = Vector2(9.53674e-07, 0)
+
+[node name="Heart2" parent="." instance=ExtResource("2_qnflp")]
+position = Vector2(35, -7.62939e-06)
+
+[node name="Heart3" parent="." instance=ExtResource("2_qnflp")]
+position = Vector2(70, -5.96046e-08)
