@@ -1,23 +1,69 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjo0m7a1ns08j"]
+[gd_scene load_steps=11 format=3 uid="uid://cjo0m7a1ns08j"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_mxmf2"]
 [ext_resource type="PackedScene" uid="uid://ivdkpi8xmca3" path="res://Scenes/Components/player.tscn" id="2_chakw"]
 [ext_resource type="PackedScene" uid="uid://bplo2fvgq4ops" path="res://Scenes/hearts.tscn" id="3_uy13o"]
 [ext_resource type="PackedScene" uid="uid://lxncbh5utpo0" path="res://Scenes/Components/house.tscn" id="4_fe3op"]
-[ext_resource type="PackedScene" uid="uid://biq1sr6stjxql" path="res://Scenes/Components/world_boundary.tscn" id="5_qns5g"]
+[ext_resource type="PackedScene" uid="uid://crxtyvruej3ut" path="res://Scenes/aliens.tscn" id="7_gwmbw"]
+[ext_resource type="PackedScene" uid="uid://cafud2ncnt55s" path="res://Scenes/Components/mothership.tscn" id="9_0vqqj"]
+[ext_resource type="PackedScene" uid="uid://cal23nie2jtg" path="res://Scenes/Components/obstacle.tscn" id="9_qi1c5"]
+[ext_resource type="PackedScene" uid="uid://dx8smwj8x5bql" path="res://Scenes/Components/chair.tscn" id="10_6gfia"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ph5qi"]
+font_size = 44
+
+[sub_resource type="LabelSettings" id="LabelSettings_uwbq6"]
+font_size = 41
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_mxmf2")
+mothership_prefab = ExtResource("9_0vqqj")
+chair_prefab = ExtResource("10_6gfia")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -300.0
-offset_top = 313.0
-offset_right = 151.0
-offset_bottom = 432.0
-scale = Vector2(1.32995, 0.0672871)
-color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Obstacle1" parent="Obstacles" instance=ExtResource("9_qi1c5")]
+position = Vector2(9.53674e-07, 319)
+rotation = 3.14159
+scale = Vector2(18.7507, -0.129552)
+
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource("9_qi1c5")]
+position = Vector2(-321, 69)
+scale = Vector2(0.478, 12)
+
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource("9_qi1c5")]
+position = Vector2(318, 59)
+scale = Vector2(0.478, 12)
+
+[node name="Obstacle4" parent="Obstacles" instance=ExtResource("9_qi1c5")]
+position = Vector2(-425, -350)
+scale = Vector2(0.583586, 2.2389)
+
+[node name="Obstacle5" parent="Obstacles" instance=ExtResource("9_qi1c5")]
+position = Vector2(425, -350)
+scale = Vector2(0.583586, 2.2389)
+
+[node name="StartHint" type="Label" parent="."]
+offset_left = -243.0
+offset_top = -337.0
+offset_right = 246.0
+offset_bottom = -276.0
+text = "PRESS ENTER TO START"
+label_settings = SubResource("LabelSettings_ph5qi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 331.0
+offset_right = 289.0
+offset_bottom = 388.0
+text = "0"
+label_settings = SubResource("LabelSettings_uwbq6")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Hearts" parent="." instance=ExtResource("3_uy13o")]
 position = Vector2(-261, 358)
@@ -26,6 +72,11 @@ scale = Vector2(2, 2)
 [node name="Player" parent="." instance=ExtResource("2_chakw")]
 position = Vector2(0, 280)
 scale = Vector2(6, 6)
+motion_mode = 1
+
+[node name="Aliens" parent="." instance=ExtResource("7_gwmbw")]
+position = Vector2(0, -204)
+scale = Vector2(4, 4)
 
 [node name="House1" parent="." instance=ExtResource("4_fe3op")]
 position = Vector2(-200, 180)
@@ -42,11 +93,3 @@ scale = Vector2(6, 6)
 [node name="House4" parent="." instance=ExtResource("4_fe3op")]
 position = Vector2(-70, 180)
 scale = Vector2(6, 6)
-
-[node name="WorldBoundLeftary" parent="." instance=ExtResource("5_qns5g")]
-position = Vector2(-301, 0)
-rotation = 1.5708
-
-[node name="WorldBoundaryRight" parent="." instance=ExtResource("5_qns5g")]
-position = Vector2(300, 0)
-rotation = 4.71239

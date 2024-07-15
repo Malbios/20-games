@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mmb2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqfe7"]
-size = Vector2(12, 8)
+size = Vector2(12, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_alhub"]
 atlas = ExtResource("1_4opx2")
@@ -141,14 +141,13 @@ _data = {
 script = ExtResource("1_mmb2w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_mqfe7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(1.01127, 1.01838)
 sprite_frames = SubResource("SpriteFrames_ojjqm")
-frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
