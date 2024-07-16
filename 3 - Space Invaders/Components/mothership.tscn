@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cafud2ncnt55s"]
+[gd_scene load_steps=8 format=3 uid="uid://cafud2ncnt55s"]
 
 [ext_resource type="Script" path="res://Scripts/mothership.gd" id="1_wet1e"]
 [ext_resource type="Texture2D" uid="uid://dmyxdu7t5ip8e" path="res://Assets/Sprite-0002.png" id="2_birou"]
+[ext_resource type="AudioStream" uid="uid://dpo1rh25cmgvc" path="res://Assets/blipSelect.wav" id="3_38tkm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqj33"]
 size = Vector2(14, 5.5)
@@ -38,3 +39,8 @@ shape = SubResource("RectangleShape2D_rqj33")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_071n4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_38tkm")
+volume_db = -10.0
+autoplay = true

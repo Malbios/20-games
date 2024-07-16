@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var anim := $AnimatedSprite2D as AnimatedSprite2D
+@onready var audio := $AudioStreamPlayer as AudioStreamPlayer
 
 const SPEED = 300.0
 const ACCELERATION = 10.0
@@ -23,6 +24,14 @@ func on_collision():
 
 	if collisions == 0:
 		queue_free()
+
+
+func hit(projectile: Projectile):
+	if projectile.shooter == Constants.ShooterKind.Alien:
+		return
+
+	Constants.explode(self)
+	queue_free()
 
 
 func _ready():

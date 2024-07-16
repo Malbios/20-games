@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c5a7dbayv5f3r" path="res://Assets/Sprite-0004.png" id="1_12qxu"]
 [ext_resource type="Script" path="res://Scripts/chair.gd" id="1_xlrxw"]
-[ext_resource type="PackedScene" uid="uid://yjbd3rf2ufpq" path="res://Scenes/Effects/explosion.tscn" id="2_hd8ns"]
+[ext_resource type="PackedScene" uid="uid://yjbd3rf2ufpq" path="res://Effects/explosion.tscn" id="2_hd8ns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pxvy"]
 size = Vector2(10, 12)

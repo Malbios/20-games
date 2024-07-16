@@ -5,6 +5,7 @@ extends GameScene
 
 @onready var start_hint := $StartHint as Label
 @onready var aliens := $Aliens as Aliens
+@onready var mothership_timer = $MothershipTimer as Timer
 
 
 func spawn_mothership():
@@ -21,11 +22,19 @@ func spawn_chair():
 	get_tree().current_scene.add_child(chair)
 
 
+func on_mothership_timer():
+	spawn_mothership()
+
+
+func _ready():
+	mothership_timer.timeout.connect(on_mothership_timer)
+
+
 func _input(event: InputEvent):
 	super(event)
 
 	if start_hint.visible and Input.is_action_just_released("start"):
 		start_hint.visible = false
 		aliens.start_game()
-		spawn_mothership()
 		spawn_chair()
+		mothership_timer.start()

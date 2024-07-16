@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c61eab08ujn8u"]
+
+[ext_resource type="AudioStream" uid="uid://ci6nlty7epepq" path="res://Assets/wohoo.wav" id="1_kbjjh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i5nhb"]
+font_size = 64
+
+[node name="Win" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -230.0
+offset_top = -45.0
+offset_right = 230.0
+offset_bottom = 45.0
+text = "!!! YOU WON !!!"
+label_settings = SubResource("LabelSettings_i5nhb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_kbjjh")
+autoplay = true

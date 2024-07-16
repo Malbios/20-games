@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://lxncbh5utpo0"]
+[gd_scene load_steps=11 format=3 uid="uid://lxncbh5utpo0"]
 
+[ext_resource type="Script" path="res://Scripts/house.gd" id="1_c1vhq"]
 [ext_resource type="Texture2D" uid="uid://qhp7dmchrk3i" path="res://Assets/Sprite-0001.png" id="1_wnhq2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywmfw"]
@@ -17,6 +18,18 @@ region = Rect2(16, 0, 16, 16)
 atlas = ExtResource("1_wnhq2")
 region = Rect2(32, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_trn8b"]
+atlas = ExtResource("1_wnhq2")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeay0"]
+atlas = ExtResource("1_wnhq2")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qerd8"]
+atlas = ExtResource("1_wnhq2")
+region = Rect2(32, 16, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_q60n4"]
 animations = [{
 "frames": [{
@@ -29,12 +42,27 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_omlq5")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trn8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeay0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qerd8")
+}],
+"loop": true,
+"name": &"destroyed",
 "speed": 5.0
 }]
 
 [node name="House" type="StaticBody2D"]
+script = ExtResource("1_c1vhq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

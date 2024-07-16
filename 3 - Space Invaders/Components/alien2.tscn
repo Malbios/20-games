@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dx0d5ngdiryhb"]
+[gd_scene load_steps=8 format=3 uid="uid://dx0d5ngdiryhb"]
 
 [ext_resource type="Script" path="res://Scripts/alien.gd" id="1_uv5vg"]
 [ext_resource type="Texture2D" uid="uid://dmyxdu7t5ip8e" path="res://Assets/Sprite-0002.png" id="2_4b8wu"]
+[ext_resource type="PackedScene" uid="uid://yjbd3rf2ufpq" path="res://Effects/explosion.tscn" id="2_eyv0g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqj33"]
 size = Vector2(12, 10)
@@ -30,6 +31,7 @@ animations = [{
 
 [node name="Alien" type="CharacterBody2D"]
 script = ExtResource("1_uv5vg")
+explosion_effect = ExtResource("2_eyv0g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rqj33")

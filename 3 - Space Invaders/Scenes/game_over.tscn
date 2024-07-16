@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://sq7ttlcnn37t"]
+
+[ext_resource type="AudioStream" uid="uid://c5h0tbdx1rpd0" path="res://Assets/gameover.wav" id="1_mdh7m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_urci6"]
+font_size = 64
+
+[node name="GameOver" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -255.0
+offset_top = -45.0
+offset_right = 255.0
+offset_bottom = 45.0
+text = "!!! GAME OVER !!!"
+label_settings = SubResource("LabelSettings_urci6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_mdh7m")
+volume_db = -5.0
+autoplay = true

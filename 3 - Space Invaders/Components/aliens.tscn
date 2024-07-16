@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://crxtyvruej3ut"]
 
 [ext_resource type="Script" path="res://Scripts/aliens.gd" id="1_h3bh3"]
-[ext_resource type="PackedScene" uid="uid://b30xrffeyun55" path="res://Scenes/Components/alien1.tscn" id="1_n72a4"]
-[ext_resource type="PackedScene" uid="uid://dx0d5ngdiryhb" path="res://Scenes/Components/alien2.tscn" id="2_u4il1"]
-[ext_resource type="PackedScene" uid="uid://mx1m46vjp7vn" path="res://Scenes/Components/alien3.tscn" id="3_r57dc"]
+[ext_resource type="PackedScene" uid="uid://b30xrffeyun55" path="res://Components/alien1.tscn" id="1_n72a4"]
+[ext_resource type="PackedScene" uid="uid://dx0d5ngdiryhb" path="res://Components/alien2.tscn" id="2_u4il1"]
+[ext_resource type="PackedScene" uid="uid://mx1m46vjp7vn" path="res://Components/alien3.tscn" id="3_r57dc"]
 
 [node name="Aliens" type="Node2D"]
 script = ExtResource("1_h3bh3")

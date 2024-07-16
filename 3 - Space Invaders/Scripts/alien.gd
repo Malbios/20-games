@@ -2,10 +2,20 @@ class_name Alien extends CharacterBody2D
 
 signal collision_with(collider_name: String)
 
+@export var explosion_effect: PackedScene
+
 @onready var anim := $AnimatedSprite2D as AnimatedSprite2D
 
 var speed: float
 var direction: Vector2
+
+
+func hit(projectile: Projectile):
+	if projectile.shooter == Constants.ShooterKind.Alien:
+		return
+
+	Constants.explode(self)
+	queue_free()
 
 
 func _ready():
