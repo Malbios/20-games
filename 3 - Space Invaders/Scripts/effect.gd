@@ -13,4 +13,5 @@ func play(parent: Node2D):
 	parent.get_tree().current_scene.add_child(self)
 	sound.finished.connect(on_finish)
 	emitting = true
-	sound.play()
+	if not Mute.muted:
+		sound.play()

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cptj2825r8pns"]
+
+[ext_resource type="Script" path="res://Scripts/houses.gd" id="1_kcgqi"]
+[ext_resource type="PackedScene" uid="uid://lxncbh5utpo0" path="res://Components/house.tscn" id="1_qs1mo"]
+
+[node name="Houses" type="Node2D"]
+script = ExtResource("1_kcgqi")
+
+[node name="House1" parent="." instance=ExtResource("1_qs1mo")]
+position = Vector2(-200, 0)
+scale = Vector2(6, 6)
+
+[node name="House2" parent="." instance=ExtResource("1_qs1mo")]
+position = Vector2(200, 0)
+scale = Vector2(6, 6)
+
+[node name="House3" parent="." instance=ExtResource("1_qs1mo")]
+position = Vector2(70, 0)
+scale = Vector2(6, 6)
+
+[node name="House4" parent="." instance=ExtResource("1_qs1mo")]
+position = Vector2(-70, 0)
+scale = Vector2(6, 6)

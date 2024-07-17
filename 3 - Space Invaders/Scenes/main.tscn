@@ -3,14 +3,12 @@
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_mxmf2"]
 [ext_resource type="PackedScene" uid="uid://ivdkpi8xmca3" path="res://Components/player.tscn" id="2_chakw"]
 [ext_resource type="PackedScene" uid="uid://bplo2fvgq4ops" path="res://Components/hearts.tscn" id="3_uy13o"]
-[ext_resource type="PackedScene" uid="uid://lxncbh5utpo0" path="res://Components/house.tscn" id="4_fe3op"]
+[ext_resource type="Script" path="res://Scripts/score.gd" id="5_ua40j"]
+[ext_resource type="PackedScene" uid="uid://cptj2825r8pns" path="res://Components/houses.tscn" id="7_08nhy"]
 [ext_resource type="PackedScene" uid="uid://crxtyvruej3ut" path="res://Components/aliens.tscn" id="7_gwmbw"]
 [ext_resource type="PackedScene" uid="uid://cafud2ncnt55s" path="res://Components/mothership.tscn" id="9_0vqqj"]
 [ext_resource type="PackedScene" uid="uid://cal23nie2jtg" path="res://Components/obstacle.tscn" id="9_qi1c5"]
 [ext_resource type="PackedScene" uid="uid://dx8smwj8x5bql" path="res://Components/chair.tscn" id="10_6gfia"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ph5qi"]
-font_size = 44
 
 [sub_resource type="LabelSettings" id="LabelSettings_uwbq6"]
 font_size = 41
@@ -19,6 +17,9 @@ font_size = 41
 script = ExtResource("1_mxmf2")
 mothership_prefab = ExtResource("9_0vqqj")
 chair_prefab = ExtResource("10_6gfia")
+
+[node name="MothershipTimer" type="Timer" parent="."]
+wait_time = 12.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -49,16 +50,6 @@ scale = Vector2(0.583586, 2.2389)
 position = Vector2(-319, 21)
 scale = Vector2(0.469138, 14.3963)
 
-[node name="StartHint" type="Label" parent="."]
-offset_left = -243.0
-offset_top = -337.0
-offset_right = 246.0
-offset_bottom = -276.0
-text = "PRESS ENTER TO START"
-label_settings = SubResource("LabelSettings_ph5qi")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Score" type="Label" parent="."]
 offset_left = 64.0
 offset_top = 331.0
@@ -68,34 +59,19 @@ text = "0"
 label_settings = SubResource("LabelSettings_uwbq6")
 horizontal_alignment = 2
 vertical_alignment = 1
+script = ExtResource("5_ua40j")
 
 [node name="Hearts" parent="." instance=ExtResource("3_uy13o")]
 position = Vector2(-261, 358)
 scale = Vector2(2, 2)
 
+[node name="Houses" parent="." instance=ExtResource("7_08nhy")]
+position = Vector2(0, 165)
+
 [node name="Aliens" parent="." instance=ExtResource("7_gwmbw")]
 position = Vector2(0, -204)
 scale = Vector2(4, 4)
 
-[node name="House1" parent="." instance=ExtResource("4_fe3op")]
-position = Vector2(-200, 180)
-scale = Vector2(6, 6)
-
-[node name="House2" parent="." instance=ExtResource("4_fe3op")]
-position = Vector2(200, 180)
-scale = Vector2(6, 6)
-
-[node name="House3" parent="." instance=ExtResource("4_fe3op")]
-position = Vector2(70, 180)
-scale = Vector2(6, 6)
-
-[node name="House4" parent="." instance=ExtResource("4_fe3op")]
-position = Vector2(-70, 180)
-scale = Vector2(6, 6)
-
 [node name="Player" parent="." instance=ExtResource("2_chakw")]
 position = Vector2(0, 280)
 scale = Vector2(6, 6)
-
-[node name="MothershipTimer" type="Timer" parent="."]
-wait_time = 12.0

@@ -1,5 +1,9 @@
 class_name Aliens extends Node2D
 
+signal all_aliens_dead
+signal aliens_at_base
+signal alien_was_hit
+
 const SPEED = 100.0
 
 const RIGHT_DIRECTION = Vector2(1, 0)
@@ -9,13 +13,29 @@ var direction := RIGHT_DIRECTION
 
 var ignore_collisions := false
 var timer: Timer
+var aliens_count := 0
 
 
-func on_collision(_collider_name: String):
+func on_alien_death():
+	alien_was_hit.emit()
+	aliens_count -= 1
+
+	if aliens_count == 0:
+		all_aliens_dead.emit()
+
+
+func on_collision(body: Node):
 	if ignore_collisions:
 		return
 
 	set_ignore_collisions()
+
+	# var collider_name := str(body.get("name"))
+	# print("an alien collided with " + collider_name)
+
+	if body is House:
+		aliens_at_base.emit()
+		return
 
 	if direction == LEFT_DIRECTION:
 		direction = RIGHT_DIRECTION
@@ -43,15 +63,11 @@ func on_timeout():
 	timer.queue_free()
 
 
-func start_game():
-	for child in get_children():
-		var alien = child as Alien
-		alien.speed = SPEED
-
-
 func _ready():
 	for child in get_children():
 		var alien = child as Alien
+		aliens_count += 1
 		alien.collision_with.connect(on_collision)
+		alien.died.connect(on_alien_death)
 		alien.direction = direction
-		alien.speed = 0
+		alien.speed = SPEED

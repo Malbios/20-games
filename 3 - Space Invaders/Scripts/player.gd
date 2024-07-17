@@ -1,15 +1,34 @@
 class_name Player extends CharacterBody2D
 
-@export var projectile: PackedScene
+signal hit_alien
+signal hit_mothership
+signal was_hit
+
+@export var projectile_prefab: PackedScene
 
 @onready var anim_player = $AnimationPlayer as AnimationPlayer
-@onready var timer = $Timer as Timer
+
+var timer = Timer.new()
 
 const MIN_X = -260
 const MAX_X = 260
 
 const SPEED = 600.0
 const ACCELERATION = 10.0
+
+
+func hit(projectile: Projectile):
+	if projectile.shooter == Constants.ShooterKind.Player:
+		return
+
+	Constants.explode(self)
+	was_hit.emit()
+
+
+func _ready():
+	timer.wait_time = 1.0
+	timer.one_shot = true
+	add_child(timer)
 
 
 func _input(_event: InputEvent):
@@ -23,8 +42,9 @@ func _input(_event: InputEvent):
 		Constants.fire_projectile(
 			get_tree().current_scene,
 			Constants.ShooterKind.Player,
-			position + Vector2(0, -30),
-			Vector2(0, -1)
+			global_position + Vector2(0, -30),
+			Vector2(0, -1),
+			750
 		)
 		timer.start()
 

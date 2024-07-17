@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
+signal was_hit
+
 @onready var anim := $AnimatedSprite2D as AnimatedSprite2D
-@onready var audio := $AudioStreamPlayer as AudioStreamPlayer
+@onready var sound := $AudioStreamPlayer as AudioStreamPlayer
 
 const SPEED = 300.0
 const ACCELERATION = 10.0
@@ -32,10 +34,13 @@ func hit(projectile: Projectile):
 
 	Constants.explode(self)
 	queue_free()
+	was_hit.emit()
 
 
 func _ready():
 	anim.play()
+	if not Mute.muted:
+		sound.play()
 
 
 func _physics_process(delta):

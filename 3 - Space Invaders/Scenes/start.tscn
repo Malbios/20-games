@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bliw7s00l31vw"]
+
+[ext_resource type="Script" path="res://Scripts/start.gd" id="1_krbw6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vfc0c"]
+font_size = 48
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_krbw6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -265.0
+offset_top = -45.0
+offset_right = 265.0
+offset_bottom = 45.0
+text = "PRESS SPACE TO START"
+label_settings = SubResource("LabelSettings_vfc0c")
+horizontal_alignment = 1
+vertical_alignment = 1
